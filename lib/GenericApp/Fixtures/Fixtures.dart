@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 
-class UserSignUp extends StatefulWidget {
+class Fixtures extends StatefulWidget {
   @override
-  _UserSignUpState createState() => _UserSignUpState();
+  _FixturesState createState() => _FixturesState();
 }
 
-class _UserSignUpState extends State<UserSignUp> {
+class _FixturesState extends State<Fixtures> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
         child: Container(
           child: Text(
-              'Sign Up Page'
+              'Fixtures'
           ),
         ),
       ),
