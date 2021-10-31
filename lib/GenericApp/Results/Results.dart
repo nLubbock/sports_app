@@ -1,29 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:sports_app/GenericWidgets/NavigationDrawer.dart';
 
-class Fixtures extends StatefulWidget {
+class Results extends StatefulWidget {
 
-  static const String routeName = '/fixtures';
+  static const String routeName = '/results';
 
   @override
-  _FixturesState createState() => _FixturesState();
+  _ResultsState createState() => _ResultsState();
 }
 
-class _FixturesState extends State<Fixtures> {
+class _ResultsState extends State<Results> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: NavigationDrawer(),
       appBar: AppBar(
         title: Text(
-            'OCRFC Fixtures'
+            'Results'
         ),
       ),
       body: Center(
-        child: Container(
-          child: Text(
-              'Fixtures'
-          ),
+        child: Text(
+            'Results'
         ),
       ),
     );
