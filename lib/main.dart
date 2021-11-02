@@ -1,5 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:sports_app/GenericApp/Fixtures/Fixtures.dart';
+import 'package:sports_app/GenericApp/Members/Members.dart';
+import 'package:sports_app/GenericApp/Profile/Profile.dart';
+import 'package:sports_app/GenericApp/Results/Results.dart';
+import 'package:sports_app/GenericApp/Team/Team.dart';
+import 'package:sports_app/GenericApp/Training/Training.dart';
+import 'package:sports_app/GenericApp/Updates/Updates.dart';
+import 'package:sports_app/Services/Routes.dart';
 
 void main() {
   runApp(MyApp());
@@ -24,6 +31,15 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: Fixtures(),
+      routes: {
+        Routes.fixtures: (context) => Fixtures(),
+        Routes.members: (context) => Members(),
+        Routes.profile: (context) => Profile(),
+        Routes.results: (context) => Results(),
+        Routes.team: (context) => Team(),
+        Routes.training: (context) => Training(),
+        Routes.updates: (context) => Updates(),
+      },
     );
   }
 }

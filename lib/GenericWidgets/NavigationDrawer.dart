@@ -14,24 +14,18 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
     _drawerHeader() {
       return UserAccountsDrawerHeader(
         decoration: BoxDecoration(
-          color: Color(0xDD042d68),
+          color: Theme.of(context).primaryColor
         ),
         accountEmail: Text(
-          'chairman@ocrfc.com',
-          style: TextStyle(
-              color: Colors.amber
-          ),
+          'Team Email',
         ),
         accountName: Text(
-          'Old Cranleighan RFC',
-          style: TextStyle(
-              color: Colors.amber
-          ),
+          'Team Name',
         ),
         currentAccountPicture: CircleAvatar(
           radius: 85.0,
           backgroundColor: Colors.white,
-          backgroundImage: AssetImage('assets/old-cranleighan-rfc.png'),
+          backgroundImage: AssetImage('Assets/old-cranleighan-rfc.png'),
         ),
       );
     }
