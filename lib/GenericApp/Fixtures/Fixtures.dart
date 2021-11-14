@@ -99,7 +99,7 @@ class FixtureTile extends StatefulWidget {
 
   final Fixture fixture;
   final String team;
-  FixtureTile({ this.fixture, this.team });
+  FixtureTile({ required this.fixture, required this.team });
 
   @override
   _FixtureTileState createState() => _FixtureTileState();

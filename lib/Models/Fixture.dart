@@ -12,6 +12,6 @@ class Fixture {
   final String fieldPostcode;
 
 
-  Fixture({this.fixtureID, this.fixtureDate, this.meetDate, this.clubID, this.teamID,
-    this.oppositionClub, this.leagueCup, this.homeAway, this.fieldAddress, this.fieldPostcode});
+  Fixture({required this.fixtureID, required this.fixtureDate, required this.meetDate, required this.clubID, required this.teamID,
+    required this.oppositionClub, required this.leagueCup, required this.homeAway, required this.fieldAddress, required this.fieldPostcode});
 }
