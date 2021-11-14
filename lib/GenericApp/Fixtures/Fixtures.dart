@@ -14,6 +14,9 @@ class Fixtures extends StatefulWidget {
 }
 
 class _FixturesState extends State<Fixtures> {
+
+  String _team = '1st XV';
+
   @override
   Widget build(BuildContext context) {
 
@@ -37,14 +40,45 @@ class _FixturesState extends State<Fixtures> {
           homeAway: 'Home',
           fieldAddress: 'The OC Club',
           fieldPostcode: 'KT7 0HB')];
+    
+    final List _teams = [
+      '1st XV',
+      '2nd XV',
+      'B XV'
+    ];
+
+
 
 
     return Scaffold(
       drawer: NavigationDrawer(),
       appBar: AppBar(
-        actions: [],
+        centerTitle: true,
+        actions: <Widget>[
+          PopupMenuButton(
+            child: Row(
+              children: [
+                Text(_team),
+                Icon(Icons.arrow_drop_down),
+              ],
+            ),
+            itemBuilder: (BuildContext context) {
+              return _teams.map((team) {
+                return PopupMenuItem<String>(
+                  value: team,
+                  child: Text(team),
+                );
+              }).toList();
+            },
+            onSelected: (String value) {
+              setState(() {
+                _team = value;
+              });
+            },
+          )
+        ],
         title: Text(
-            '1st XV Fixtures'
+            'Fixtures'
         ),
       ),
       body: fixtures.length == 0 ? Center(child: Text('No Upcoming Fixtures'))
@@ -53,7 +87,7 @@ class _FixturesState extends State<Fixtures> {
         itemBuilder: (BuildContext context, int index) {
           return Padding(
             padding: const EdgeInsets.symmetric(vertical: 0.0, horizontal: 10.0),
-            child: FixtureTile(fixture: fixtures[index]),
+            child: FixtureTile(fixture: fixtures[index], team: _team),
           );
         },
       ),
@@ -64,7 +98,8 @@ class _FixturesState extends State<Fixtures> {
 class FixtureTile extends StatefulWidget {
 
   final Fixture fixture;
-  FixtureTile({ this.fixture });
+  final String team;
+  FixtureTile({ this.fixture, this.team });
 
   @override
   _FixtureTileState createState() => _FixtureTileState();
@@ -88,7 +123,7 @@ class _FixtureTileState extends State<FixtureTile> {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => FixtureDetailsPage(fixture: widget.fixture),
+                    builder: (context) => FixtureDetailsPage(fixture: widget.fixture, team: widget.team),
                   )
               );
             },
@@ -116,7 +151,12 @@ class _FixtureTileState extends State<FixtureTile> {
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text('1st XV: ' + widget.fixture.oppositionClub),
+                              Text(
+                                widget.team + ' ' + widget.fixture.oppositionClub,
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold
+                                ),
+                              ),
                               SizedBox(height: 5.0),
                               Text('Kick Off: ' + dateFormat3.format(widget.fixture.fixtureDate)),
                               SizedBox(height: 5.0),

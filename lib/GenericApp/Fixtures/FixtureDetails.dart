@@ -4,7 +4,8 @@ import 'package:sports_app/Models/Fixture.dart';
 class FixtureDetailsPage extends StatefulWidget {
 
   final Fixture fixture;
-  FixtureDetailsPage({ this.fixture });
+  final String team;
+  FixtureDetailsPage({ this.fixture, this.team });
 
   @override
   _FixtureDetailsPageState createState() => _FixtureDetailsPageState();
